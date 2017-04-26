@@ -1,0 +1,17 @@
+{
+  "name": "chatapp-demo",
+  "version": "1.0.0",
+  "description": "multi room chat app demo, powered by socket.io",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.15.2",
+    "hbs": "^3.1.1",
+    "path": "^0.11.14",
+    "socket.io": "^1.7.3",
+    "mysql":"^2.13.0",
+    "express-session":"^1.15.2"
+  },
+  "devDependencies": {},
+  "author": "wuyanxin",
+  "license": "ISC"
+}

@@ -1,0 +1,11 @@
+项目创建成功之后，生成四个文件夹，主文件app.js与配置信息文件packetage.json
+
+bin是项目的启动文件，配置以什么方式启动项目，默认 npm start
+
+public是项目的静态文件，放置js css img等文件
+
+routes是项目的路由信息文件,控制地址路由
+
+views是视图文件，放置模板文件ejs或jade等（其实就相当于html形式文件啦~)
+
+express这样的MVC框架模式，是一个Web项目的基本构成。

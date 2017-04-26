@@ -1,0 +1,96 @@
+body{
+    background-image: url("../img/bgimg1.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    /*font-family: "方正黑体简体";*/
+    font-size: 13px;
+    line-height: 1.7;/*设置行高*/
+    word-wrap: break-word;
+    color: #222;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+.body{
+    background-color: white;
+    border-radius: 8px;
+    height:90%;
+    width:90%;
+    position: absolute;
+    margin: auto;
+    top:0;left: 0;right: 0;bottom: 0;
+    vertical-align:middle;
+    opacity:0.8;
+    filter:alpha(opacity=80);
+}
+.header {
+    position: static;
+    background-color: rgba(41, 33, 52, 0.93);
+    height: 50px;
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.logo {
+    height: inherit;
+    width: 150px;
+    position: relative;
+    float: left;
+    vertical-align: middle;
+    padding-left: 6px;
+}
+.profile{
+    position: relative;
+    float: right;
+    height: 45px;
+    width:200px;
+    color: white;
+    min-width: 120px;
+    margin-top: 5px;
+    padding-top: 10px;
+    font-size: 16px;
+    vertical-align: middle;
+    text-align: center;
+}
+span{
+    margin-right: 20px;
+}
+a{
+    font-size: 10px;
+    text-decoration: none;
+    color: #000;
+}
+.file{
+    height: 500px;
+    width: 98%;
+}
+.tool{
+    height: 30px;
+    width: 95%;
+    margin: auto;
+    margin-top: 8px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+button{
+   vertical-align: middle;
+    margin-top: 5px;
+}
+.display{
+    height: 95%;
+    width: 95%;
+    margin: auto;
+    margin-top: 5px;
+    border-top: 1px solid gray;
+}
+.logout{
+    color: white;
+}
+.del{
+    float:right;
+}
+tr{
+    width: 100%;
+}

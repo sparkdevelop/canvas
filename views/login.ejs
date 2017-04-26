@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" href="/css/loginstyle.css"/>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="/js/login.js"></script>
+</head>
+<body>
+
+<div id="window">
+   <div id="format">
+       <fieldset><legend>登陆界面</legend>
+           用户名：<input type="text" id="username"/><br/>
+           密码：<input type="password" id="password"/><br/>
+          <button  type="submit" id="login" class="login-button">登陆</button>
+           <div id="change"><a href="/register">注册账号</a></div>
+           <div id="error"><%-message %></div>
+           </fieldset>
+
+
+   </div>
+</div>
+
+</body>
+</html>

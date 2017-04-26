@@ -1,0 +1,39 @@
+<?php session_start();?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <link rel="stylesheet" type="text/css" href="/css/homestyle.css" />
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="../js/home.js"></script>
+</head>
+<body>
+ <%-message %>
+<div class="body">
+    <div class="header">
+        <img src="/img/LOGO.png"/>
+        <div class="profile">
+            <span>欢迎您：<%-user%></span>
+            <a href="/logout" class="logout">退出登录</a>
+        </div>
+    </div>
+    <div class="filedisplay">
+        <div class="file">
+           <div class="tool">
+               <button onclick=news()>新建画布</button>
+               <button onclick=join()>加入画布</button>
+           </div>
+            <div class="display">
+                <span>我的画布</span>
+                <table width="100%" id="list">
+                </table>
+                <div class="canvas"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
