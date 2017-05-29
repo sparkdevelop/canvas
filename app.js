@@ -38,7 +38,7 @@ app.use(function(req,res,next){
     delete req.session.error;
     res.locals.message = "";   // 展示的信息 message
     if(err){
-        res.locals.message = '<div class="alert alert-danger" style="margin-bottom:20px;color:red;">'+err+'</div>';
+        res.locals.message = '<span class="alert alert-danger" style="color:#fc6c23;">'+err+'</span>';
     }
     next();  //中间件传递
 });
@@ -78,14 +78,12 @@ socketIO.on('connection', function (socket) {
         }
 
     });
-
     socket.on('leave', function () {
         socket.emit('disconnect');
     });
     socket.on('out', function () {
         socket.emit('disconnect');
     });
-
     socket.on('disconnect', function () {
         // 从房间名单中移除
         var index = roomInfo[roomID].indexOf(user);
@@ -97,12 +95,11 @@ socketIO.on('connection', function (socket) {
         socketIO.to(roomID).emit('sys', user + '退出了房间', roomInfo[roomID]);
         console.log(user + '退出了' + roomID);
     });
-
     socket.on('message', function(msg) {
         if (roomInfo[roomID].indexOf(user) === -1) {
             return false;
         }
-        // console.log('Received: ', msg);
+        console.log('Received: ', msg);
         if (!messages[roomID]) {
             messages[roomID] = [];
         }
@@ -111,7 +108,12 @@ socketIO.on('connection', function (socket) {
         }
         socketIO.to(roomID).emit('message', msg);
     });
-
+    socket.on('filenamechg',function (filenamechg) {
+        if (roomInfo[roomID].indexOf(user) === -1) {
+            return false;
+        }
+        socketIO.to(roomID).emit('filenamechg', filenamechg);
+    })
 });
 
 
@@ -155,6 +157,7 @@ routes.post('/room/handle', function(req, res) {
     var cus=data.customer;
     var fra=data.frame;
     var rev=data.revenue;
+    // console.log(data);
 
     var connection = mysql.createConnection({
         host     : 'localhost',

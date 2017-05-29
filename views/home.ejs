@@ -1,39 +1,69 @@
-<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>canvas</title>
     <link rel="stylesheet" type="text/css" href="/css/homestyle.css" />
+    <!--<link rel="stylesheet" type="text/css" href="/demo/canvas-master/public/css/homestyle.css" />-->
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="../js/home.js"></script>
 </head>
 <body>
- <%-message %>
-<div class="body">
-    <div class="header">
-        <img src="/img/LOGO.png"/>
-        <div class="profile">
-            <span>欢迎您：<%-user%></span>
-            <a href="/logout" class="logout">退出登录</a>
-        </div>
-    </div>
-    <div class="filedisplay">
-        <div class="file">
-           <div class="tool">
-               <button onclick=news()>新建画布</button>
-               <button onclick=join()>加入画布</button>
-           </div>
-            <div class="display">
-                <span>我的画布</span>
-                <table width="100%" id="list">
-                </table>
-                <div class="canvas"></div>
-            </div>
-        </div>
-    </div>
 
+<!--<%-message %>-->
+<!--<div class="body">-->
+    <!--<div class="header">-->
+        <!--<img src="/img/LOGO.png"/>-->
+        <!--<div class="profile">-->
+            <!--<span>欢迎您：<%-user%></span>-->
+            <!--<a href="/logout" class="logout">退出登录</a>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="filedisplay">-->
+        <!--<div class="file">-->
+           <!--<div class="tool">-->
+               <!--<button onclick=news()>新建画布</button>-->
+               <!--<button onclick=join()>加入画布</button>-->
+           <!--</div>-->
+            <!--<div class="display">-->
+                <!--<span>我的画布</span>-->
+                <!--<table width="100%" id="list">-->
+                <!--</table>-->
+                <!--<div class="canvas"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+
+<div class="head">
+    <span id="logo">火花画布</span>
+    <div class="user">
+        <img id="profile" src="/img/avatar_grey.png"/>
+        <span class="mes" id="username"><%-user%></span>
+        <div class="box"><ul><li><img id="triangle" src="/img/triangle.png"/>
+          <ul class="link">
+              <li><a href="/logout">退出登录</a></li>
+          </ul></li></ul>
+          </div>
+    </div>
 </div>
-
+<div class="content">
+    <div class="menu">
+        <div class="menucon">我的画布</div>
+    </div>
+    <div class="canvacon">
+        <button onclick=news()>＋ 新建画布</button>
+        <button onclick=join()>❈ 加入画布</button>
+        <%-message %>
+        <table id="list">
+            <tr id="tablehead">
+                <th class="cavaname" width="92%" style="text-indent: 10px ">名称</th>
+                <th class="set" width="8%" style="text-align: center">选项</th>
+            </tr>
+        </table>
+    </div>
+</div>
 </body>
 </html>

@@ -10,16 +10,15 @@
 </head>
 <body>
 
+<div class="head">
+    <span id="logo">火花画布</span>
+</div>
 <div id="window">
    <div id="format">
-       <fieldset><legend>登陆界面</legend>
-           用户名：<input type="text" id="username"/><br/>
+           用户名：<span id="error"><%-message %></span><input type="text" id="username"/><br/>
            密码：<input type="password" id="password"/><br/>
           <button  type="submit" id="login" class="login-button">登陆</button>
-           <div id="change"><a href="/register">注册账号</a></div>
-           <div id="error"><%-message %></div>
-           </fieldset>
-
+           <div id="change"><a href="/register">注册</a></div>
 
    </div>
 </div>

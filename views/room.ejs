@@ -10,59 +10,134 @@
     <script src="/js/savepic.js"></script>
 </head>
 <body>
-<div class="window" id="info">
-    <div id="roominfo" >
-      昵称: <span id="userName"> <%-user%></span> <br/>
-      房间:<span id="room"> <%-roomID%></span><br/>
-      当前在线人数: <span id="count"><%-length%></span> <br/>
-      在线用户:  <span id="users"> <%-users%></span>
+<!--<div class="window" id="info">-->
+    <!--<div id="roominfo" >-->
+      <!--昵称: <span id="userName"> <%-user%></span> <br/>-->
+      <!--房间:<span id="room"> <%-roomID%></span><br/>-->
+      <!--当前在线人数: <span id="count"><%-length%></span> <br/>-->
+      <!--在线用户:  <span id="users"> <%-users%></span>-->
+    <!--</div>-->
+    <!--<div id="msginfo">-->
+       <!--<textarea id="msglog"></textarea><br/>-->
+        <!--<button id="savethecava" onclick="javascript:d('canvaform').submit();">保存画布</button>-->
+       <!--<button onclick=Download() id="save"  class="login-button">导出画布</button>-->
+       <!--<button id="joinOrLeave">退出房间</button>-->
+  <!--</div>-->
+<!--</div>-->
+<!--<div id="cover"></div>-->
+<!--<div class="window" id="cava">-->
+<!--<form id="canvaform" method="post" action="handle">-->
+<!--<input type="hidden" id="cid" name="cid"/>-->
+<!--<div class="filename">画布名称：<input  type="text" name="filename" id="t_filename" /></div>-->
+
+<!--<div class="canvas">-->
+<!--<div class="top">-->
+<!--<div id="parterner"><textarea id="t_parterner" name="parterner"></textarea></div>-->
+<!--<div>-->
+<!--<div id="work"><textarea id="t_work" name="work"></textarea></div>-->
+<!--<div id="resource"><textarea id="t_resource" name="resource"></textarea></div>-->
+<!--</div>-->
+<!--<div id="cost"><textarea id="t_cost" name="cost"></textarea></div>-->
+<!--<div>-->
+<!--<div id="relationship"><textarea id="t_relationship" name="relationship"></textarea></div>-->
+<!--<div id="path"><textarea id="t_path" name="path"></textarea></div>-->
+<!--</div>-->
+<!--<div id="customer"><textarea id="t_customer" name="customer"></textarea></div>-->
+<!--</div>-->
+<!--<div class="bottom">-->
+<!--<div id="frame"><textarea id="t_frame" name="frame"></textarea></div>-->
+<!--<div id="revenue"><textarea id="t_revenue" name="revenue"></textarea></div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</form>-->
+
+<!--</div>-->
+
+
+  <!--<canvas id="canvas" ></canvas>-->
+  <!--<canvas id="canvas_1" ></canvas>-->
+  <!--<canvas id="canvas_2" ></canvas>-->
+  <!--<canvas id="canvas_3" ></canvas>-->
+  <!--<canvas id="canvas_4" ></canvas>-->
+  <!--<canvas id="canvas_5" ></canvas>-->
+  <!--<canvas id="canvas_6" ></canvas>-->
+  <!--<canvas id="canvas_7" ></canvas>-->
+  <!--<canvas id="canvas_8" ></canvas>-->
+  <!--<canvas id="mycanvas"></canvas>-->
+
+<div class="head">
+  <span id="logo">火花画布</span>
+  <div class="user">
+    <img id="profile" src="/img/avatar_grey.png"/>
+    <span class="mes" id="username"><%-user%></span>
+    <div class="box"><ul><li><img id="triangle" src="/img/triangle.png"/>
+      <ul class="link">
+        <li><a href="/logout">退出登录</a></li>
+      </ul></li></ul>
     </div>
-    <div id="msginfo">
-       <textarea id="msglog"></textarea><br/>
-        <button id="savethecava" onclick="javascript:d('canvaform').submit();">保存画布</button>
-       <button onclick=Download() id="save"  class="login-button">导出画布</button>
-       <button id="joinOrLeave">退出房间</button>
   </div>
 </div>
-<div id="cover"></div>
-<div class="window" id="cava">
-  <form id="canvaform" method="post" action="handle">
-    <input type="hidden" id="cid" name="cid"/>
-    <div class="filename">画布名称：<input  type="text" name="filename" id="t_filename" /></div>
-
-    <div class="canvas">
+<div class="content">
+    <div class="menu">
+        <div class="menucon">我的画布</div>
+          <div id="roominfo" >
+          房间:<span id="room"> <%-roomID%></span><br/>
+          当前在线人数: <span id="count"><%-length%></span> <br/>
+          在线用户:  <span id="users"> <%-users%></span>
+           <div id="msginfo">
+                 <textarea id="msglog"></textarea><br/></div>
+          </div>
+    </div>
+     <div class="headset">
+            <button onclick=Savecanva() id="savethecava">保存</button>
+            <button onclick=Download() id="save"  class="login-button">导出</button>
+            <button id="joinOrLeave">退出</button>
+          </div>
+    <div class="canvacon">
+          <div id="cover"></div>
+          <div class="filename" id="filename_edit"><input  type="text" name="filename" id="t_filename_input" /><img class="editconfirm" id="edityes" src="/img/yes.png"/><img class="editconfirm" id="editcancel" src="/img/cancel.png"/></div>
+          <div class="filename" id="filename_play"><span id="t_filename" ></span><img id="edithead" src="/img/edit.png"/></div>
+      <form id="canvaform">
+      <div class="window" id="cava">
+          <input type="hidden" id="cid" name="cid"/>
+          <input type="hidden" id="filename_form" name="filename"/>
+      <div class="canvas">
       <div class="top">
-        <div id="parterner"><textarea id="t_parterner" name="parterner"></textarea></div>
-        <div>
-          <div id="work"><textarea id="t_work" name="work"></textarea></div>
-          <div id="resource"><textarea id="t_resource" name="resource"></textarea></div>
-        </div>
-        <div id="cost"><textarea id="t_cost" name="cost"></textarea></div>
-        <div>
-          <div id="relationship"><textarea id="t_relationship" name="relationship"></textarea></div>
-          <div id="path"><textarea id="t_path" name="path"></textarea></div>
-        </div>
-        <div id="customer"><textarea id="t_customer" name="customer"></textarea></div>
+      <div id="parterner"><textarea id="t_parterner" name="parterner"></textarea></div>
+      <div>
+      <div id="work"><textarea id="t_work" name="work"></textarea></div>
+      <div id="resource"><textarea id="t_resource" name="resource"></textarea></div>
+      </div>
+      <div id="cost"><textarea id="t_cost" name="cost"></textarea></div>
+      <div>
+      <div id="relationship"><textarea id="t_relationship" name="relationship"></textarea></div>
+      <div id="path"><textarea id="t_path" name="path"></textarea></div>
+      </div>
+      <div id="customer"><textarea id="t_customer" name="customer"></textarea></div>
       </div>
       <div class="bottom">
-        <div id="frame"><textarea id="t_frame" name="frame"></textarea></div>
-        <div id="revenue"><textarea id="t_revenue" name="revenue"></textarea></div>
+      <div id="frame"><textarea id="t_frame" name="frame"></textarea></div>
+      <div id="revenue"><textarea id="t_revenue" name="revenue"></textarea></div>
       </div>
+      </div>
+      </form>
+
+      </div>
+
+
+      <canvas id="canvas" ></canvas>
+      <canvas id="canvas_1" ></canvas>
+      <canvas id="canvas_2" ></canvas>
+      <canvas id="canvas_3" ></canvas>
+      <canvas id="canvas_4" ></canvas>
+      <canvas id="canvas_5" ></canvas>
+      <canvas id="canvas_6" ></canvas>
+      <canvas id="canvas_7" ></canvas>
+      <canvas id="canvas_8" ></canvas>
+      <canvas id="mycanvas"></canvas>
+
     </div>
-  </form>
+</div>
 
-  </div>
-
-
-  <canvas id="canvas" ></canvas>
-  <canvas id="canvas_1" ></canvas>
-  <canvas id="canvas_2" ></canvas>
-  <canvas id="canvas_3" ></canvas>
-  <canvas id="canvas_4" ></canvas>
-  <canvas id="canvas_5" ></canvas>
-  <canvas id="canvas_6" ></canvas>
-  <canvas id="canvas_7" ></canvas>
-  <canvas id="canvas_8" ></canvas>
-  <canvas id="mycanvas"></canvas>
 </body>
 </html>

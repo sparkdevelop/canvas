@@ -198,7 +198,7 @@ $(function () {
     var caid=splitid[1];
     $("#cid").val(caid);
     // ----------设置昵称-------------
-    var userName =$('#userName').text();
+    var userName =$('#username').text();
 
     // ---------创建连接-----------
     var socket = io();
@@ -210,7 +210,8 @@ $(function () {
         type:'post',
         data: {'canvasid':caid},
         success: function(data){
-            $("#t_filename").val(data.filename);conarray[0]=data.filename;
+            // $("#t_filename").val(data.filename);conarray[0]=data.filename;
+            $('#t_filename').text(data.filename);$('#filename_form').val(data.filename);conarray[0]=data.filename;
             $("#t_parterner").val(data.par);conarray[1]=data.par;
             $("#t_work").val(data.wor);conarray[2]=data.wor;
             $("#t_revenue").val(data.rev);conarray[3]=data.rev;
@@ -225,7 +226,6 @@ $(function () {
         socket.emit('join', userName);
 
     });
-
     // 监听消息
     socket.on('message', function(message) {//监听数据，如果传来数组，则分析数组，执行OT
         for(var i=0;i<message.length;i++){
@@ -259,6 +259,9 @@ $(function () {
                 }
             }
     });
+    socket.on('filenamechg',function (filenamechg) {
+        $('#t_filename').text(filenamechg);$('#filename_form').val(filenamechg);conarray[0]=data.filename;
+    });
 
 
     // 监听系统消息
@@ -285,18 +288,47 @@ $(function () {
 
     // 退出房间
     $('#joinOrLeave').click(function () {
-        if ($(this).text() === '退出房间') {
-            $(this).text('进入房间');
+        if ($(this).text() === '退出') {
+            $(this).text('进入');
             socket.emit('leave');
             var msg = '你已经退出了房间,重新发言请点击"进入房间"';
             d('cover').style.display='block';
             $('#msglog').text(msg);
-            window.location.href="../home";
+            // window.location.href="../home";
 
         } else {
-            $(this).text('退出房间');
+            $(this).text('退出');
             d('cover').style.display='none';
             socket.emit('join', userName);
         }
+    });
+    $('#edithead').click(function () {
+       var ed=document.getElementById("filename_edit");
+       var pl=document.getElementById("filename_play");
+       ed.style.display="block";
+       pl.style.display="none";
+    });
+    $('#editcancel').click(function () {
+        var ed=document.getElementById("filename_edit");
+        var pl=document.getElementById("filename_play");
+        ed.style.display="none";
+        pl.style.display="block";
+    });
+    $('#edityes').click(function () {
+        var filenamechg=document.getElementById('t_filename_input').value;
+        if(filenamechg!=null) {
+            $('#t_filename').text(filenamechg);
+            $('#filename_form').val(filenamechg);
+            conarray[0] = filenamechg;
+            var ed = document.getElementById("filename_edit");
+            var pl = document.getElementById("filename_play");
+            ed.style.display = "none";
+            pl.style.display = "block";
+            socket.emit('filenamechg',filenamechg);
+        }
+        else{
+            alert('画布名称不为空！');
+        }
+
     });
 });

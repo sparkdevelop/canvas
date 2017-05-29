@@ -122,3 +122,37 @@ function Download(){
     //我想用当前秒是可以解决重名的问题了 不行你就换成毫秒
     savaFile(imgdata,filename);
 }
+function Savecanva() {
+    var cid=d('cid').value;
+    var nam=d('filename_form').value;
+    var par=d('t_parterner').value;
+    var wor=d('t_work').value;
+    var reso=d('t_resource').value;
+    var cos=d('t_cost').value;
+    var rel=d('t_relationship').value;
+    var pat=d('t_path').value;
+    var cus=d('t_customer').value;
+    var fra=d('t_frame').value;
+    var rev=d('t_revenue').value;
+    var data={
+        cid:cid,
+        filename:nam,
+        parterner:par,
+        work:wor,
+        resource:reso,
+        cost:cos,
+        relationship:rel,
+        path:pat,
+        customer:cus,
+        frame:fra,
+        revenue:rev
+    };
+    $.ajax({
+        url: 'handle',
+        type: 'post',
+        data: data,
+        success: function () {
+            alert('hello');
+        }
+    });
+}

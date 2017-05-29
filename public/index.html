@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script>
-        window.location.href="/login";
-    </script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/welcome.css"/>
+
 </head>
 <body>
+<div class="outline" id="head">
+    <span id="sparkcanva">火花画布</span>
+    <span id="intro">让创业更专业</span>
+</div>
+<div class="outline" id="special">
+    <div class="spe"><img class="circle" src="img/circle.png"/><span class="speword">多种画布</span></div>
+    <div class="spe"><img class="circle" src="img/circle.png"/><span class="speword">云端同步</span></div>
+    <div class="spe"><img class="circle" src="img/circle.png"/><span class="speword">团队协作</span></div>
+    <div class="spe"><img class="circle" src="img/circle.png"/><span class="speword">版本控制</span></div>
+</div>
+<div class="outline" id="bottom">
+<button id="goregister" onclick="javascript:window.location.href='/register'">马上开启</button>
+<span id="login"><a href="/login">已有账号登陆</a></span>
+</div>
 </body>
 </html>
