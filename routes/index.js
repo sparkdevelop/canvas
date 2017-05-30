@@ -51,7 +51,7 @@ router.route('/register').get(function(req,res){
     else{
         if(psw == cof){
             if(psw.length>=6) {
-                console.log(psw.length);
+                // console.log(psw.length);
                 var client = mysql.connect();
                 mysql.selectUsr(client, usn, function (result) {
                     if (result[0] === undefined) {
