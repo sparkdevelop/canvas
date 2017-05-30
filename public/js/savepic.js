@@ -151,8 +151,11 @@ function Savecanva() {
         url: 'handle',
         type: 'post',
         data: data,
-        success: function () {
-            alert('hello');
+        success: function(data,status){},
+        error: function(data,status){
+            if(status == 'error'){
+              document.getElementById('msglog').innerHTML+='保存失败';
+            }
         }
     });
 }

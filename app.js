@@ -173,7 +173,7 @@ routes.post('/room/handle', function(req, res) {
     connection.query(modSql,modSqlParams,function (err, result) {
         if(err){
             console.log('[UPDATE ERROR] - ',err.message);
-            return;
+            res.sendStatus(500);
         }
         console.log('--------------------------UPDATE----------------------------');
         console.log('保存成功！');
@@ -184,6 +184,7 @@ routes.post('/room/handle', function(req, res) {
 
     });
     connection.end();
+    res.sendStatus(200);
 
 
 });
