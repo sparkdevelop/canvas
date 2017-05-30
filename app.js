@@ -99,7 +99,7 @@ socketIO.on('connection', function (socket) {
         if (roomInfo[roomID].indexOf(user) === -1) {
             return false;
         }
-        console.log('Received: ', msg);
+        // console.log('Received: ', msg);
         if (!messages[roomID]) {
             messages[roomID] = [];
         }

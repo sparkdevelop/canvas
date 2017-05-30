@@ -50,18 +50,25 @@ router.route('/register').get(function(req,res){
     }
     else{
         if(psw == cof){
-            var client=mysql.connect();
-            mysql.selectUsr(client,usn,function(result){
-                if(result[0]===undefined){
-                    mysql.insertUsr(client,usn,psw, function (err) {
-                        if(err) throw err;
-                        res.sendStatus(200);
-                    });
-                }
-                else{
-                    req.session.error = "用户名已存在！";
-                    res.sendStatus(500);}
-            })
+            if(psw.length>=6) {
+                console.log(psw.length);
+                var client = mysql.connect();
+                mysql.selectUsr(client, usn, function (result) {
+                    if (result[0] === undefined) {
+                        mysql.insertUsr(client, usn, psw, function (err) {
+                            if (err) throw err;
+                            res.sendStatus(200);
+                        });
+                    }
+                    else {
+                        req.session.error = "用户名已存在！";
+                        res.sendStatus(500);
+                    }
+                })
+            }else{
+                req.session.error = "密码长度不小于6位！";
+                res.sendStatus(500);
+            }
         }
         else{
             req.session.error = "密码不一致！";

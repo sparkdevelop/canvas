@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50528
 File Encoding         : 65001
 
-Date: 2017-04-24 14:11:54
+Date: 2017-05-30 16:45:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,20 +20,20 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `cooperation`;
 CREATE TABLE `cooperation` (
-  `username` varchar(255) NOT NULL,
-  `canvasid` int(255) NOT NULL AUTO_INCREMENT,
-  `filename` varchar(255) NOT NULL,
-  `par` varchar(255) DEFAULT NULL,
-  `wor` varchar(255) DEFAULT NULL,
-  `rel` varchar(255) DEFAULT NULL,
-  `res` varchar(255) DEFAULT NULL,
-  `pat` varchar(255) DEFAULT NULL,
-  `fra` varchar(255) DEFAULT NULL,
-  `rev` varchar(255) DEFAULT NULL,
-  `cos` varchar(255) DEFAULT NULL,
+  `username` longtext NOT NULL,
+  `canvasid` int(11) NOT NULL AUTO_INCREMENT,
+  `filename` longtext NOT NULL,
+  `par` longtext,
+  `wor` longtext,
+  `rel` longtext,
+  `res` longtext,
+  `pat` longtext,
+  `fra` longtext,
+  `rev` longtext,
+  `cos` longtext,
   `cus` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`canvasid`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=gb2312;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=gb2312;
 
 -- ----------------------------
 -- Table structure for matches
@@ -52,4 +52,3 @@ CREATE TABLE `user` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=gb2312;
-SET FOREIGN_KEY_CHECKS=1;
