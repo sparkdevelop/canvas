@@ -294,7 +294,7 @@ $(function () {
             var msg = '你已经退出了房间,重新发言请点击"进入房间"';
             d('cover').style.display='block';
             $('#msglog').text(msg);
-            // window.location.href="../home";
+            window.location.href="../home";
 
         } else {
             $(this).text('退出');
